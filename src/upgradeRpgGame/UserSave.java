@@ -39,7 +39,7 @@ public class UserSave {
         //replace로 접속된 ID만 찾아 능력치 및 정보로 바꿔준다
         UserInfo += (TempUserInfo.replace(RPG.ID + "," + RPG.PW,
         RPG.ID + "," + RPG.PW + "," + RPG.User.getName() + "," + RPG.User.getHp() + "," +
-        RPG.User.getPower() + "," + RPG.User.getInt() + "," + RPG.User.getDex() + "," + RPG.User.getMoney())
+        RPG.User.getPower() + "," + RPG.User.getMp() + "," + RPG.User.getDex() + "," + RPG.User.getMoney())
         + "\r\n");
 
         //User파일에 들어갈 text 미리보기

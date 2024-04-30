@@ -77,7 +77,7 @@ public class UserAdd {
 
             String AddUserInfo = "";
             AddUserInfo = "," + RPG.User.getName() + "," + RPG.User.getHp() + "," + RPG.User.getPower() + ","
-                    + RPG.User.getInt() + "," + RPG.User.getDex() + "," + RPG.User.getMoney();
+                    + RPG.User.getMp() + "," + RPG.User.getDex() + "," + RPG.User.getMoney();
             
             fw.write(AddUserInfo.trim());
             

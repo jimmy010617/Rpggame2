@@ -83,7 +83,7 @@ public class UserLoad {
                         //능력치, 돈 불러오기
                         RPG.User.setHp(Integer.parseInt(account[3]));
                         RPG.User.setPower(Integer.parseInt(account[4]));
-                        RPG.User.setInt(Integer.parseInt(account[5]));
+                        RPG.User.setMp(Integer.parseInt(account[5]));
                         RPG.User.setDex(Integer.parseInt(account[6]));
                         RPG.User.setMoney(Integer.parseInt(account[7]));
 
