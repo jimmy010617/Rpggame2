@@ -51,5 +51,7 @@ public class UserSave {
         System.out.println();
         System.out.println("현재까지의 진행상황을 일기에 기록 하였습니다");
         System.out.println();
+
     }
+    
 }
