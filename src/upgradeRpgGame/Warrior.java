@@ -3,7 +3,7 @@ package upgradeRpgGame;
 public class Warrior extends Hero {
     // 능력치 초기값
     private int power = 10;
-    private int MP = 100;
+    private int MP = 0;
     private int dex = 0;
     private int HP = 100;
     private int Money = 1000;
@@ -52,7 +52,7 @@ public class Warrior extends Hero {
     }
 
     public void setMP(int Mp) {
-        MP = Mp;
+        this.MP = Mp;
     }
 
     public int getDex() {
