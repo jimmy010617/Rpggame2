@@ -76,7 +76,7 @@ public class UserLoad {
                         } else if (account[2].equals("법사")) {
                             RPG.User = new Wizard();
                         } else if (account[2].equals("도적")) {
-                            RPG.User = new thief();
+                            RPG.User = new Thief();
                         }
 
 
