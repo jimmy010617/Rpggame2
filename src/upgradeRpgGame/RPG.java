@@ -350,6 +350,78 @@ public class RPG {
                     System.out.println("프로그램이 종료 되었습니다.");
                     System.exit(0);
             }
+
         }
+
+    }
+
+    static void Attack(int location) {//공격화면
+        //입장 알림
+
+            String disp = null;
+            switch (location) {
+            case 1:
+                disp = "동굴";
+                break;
+        
+            case 2:
+                disp = "심해";
+
+                if(User.getPower() >= 25 || User.getMp() >= 25 || User.getDex() >= 25) {
+                    break;
+                } else {
+                    System.out.println("!!! 현재 능력치 부족으로 입장이 불가 합니다. 25레벨 부터 가능 !!!");
+                    DungeonPage();
+                }
+            
+            case 3:
+                disp = "정글";
+
+                if(User.getPower() >= 35 || User.getMp() >= 35 || User.getDex() >= 35) {
+                    break;
+                } else {
+                    System.out.println("!!! 현재 능력치 부족으로 입장이 불가 합니다. 35레벨 부터 가능 !!!");
+                    DungeonPage();
+                } 
+            }
+
+            System.out.println("===============================================");
+            System.out.println("===============================================");
+            System.out.println("===============================================");
+            System.out.println("======================" + disp + "=====================");
+            System.out.println("===============================================");
+            System.out.println("===============================================");
+            System.out.println("===============================================");
+
+            System.out.println();
+            System.out.println();
+            run = true;
+
+            //몬스터 구현(던전에 따라 다르게)
+
+            //박쥐 몬스터로 Test
+            GameMonster = new Bat();
+
+            while (run) {
+                
+                GameMonster.getAttackname();
+
+                //몬스터 정보 및 공격 출력
+                System.out.println(GameMonster.getName() + "이(가) 공격을 하였다." + GameMonster.getAttackname() + "(" + GameMonster.getAttacknum() + ")");
+
+                //몬스터가 유저한테 공격하는 소스 코드
+                int UserHP = User.getHp();
+                UserHP -= GameMonster.getAttacknum();   //몬스터 공격
+                User.setHp(UserHP);
+
+                System.out.println(User.getName() + "의 HP가 " + "(" + GameMonster.getAttacknum() + ") 감소 하였다. 현재 H.P : " + User.getHp());
+
+                //HP가 0이면 마을로 돌아가기
+                if(User.getHp() <= 0) {
+                    User.setHp(10); //최소 HP 주기
+                    System.out.println("싸울힘이 없다. 마을로 강제 귀환 되며 능력치가 감소합니다.");
+                    //죽을시 직업 능력치 -1
+                }
+            }
     }
 }
