@@ -116,41 +116,41 @@ public class RPG {
             System.out.println();
 
             switch (input) {
-                case 1:
-                    //영웅 정보 구현
-                    System.out.println("============= ● " + ID + "님 Status ● ==========");
-                    System.out.println(" ● Class: " + User.getName());
-                    System.out.println();
-                    System.out.println(" ● H.P: " + User.getHp());
-                    System.out.println(" ● Pow: " + User.getPower());
-                    System.out.println(" ● M.P: " + User.getMp());
-                    System.out.println(" ● Dex: " + User.getDex());
-                    System.out.println(" ● Money: " + User.getMoney() + "(Won)");
+            case 1:
+                //영웅 정보 구현
+                System.out.println("============= ● " + ID + "님 Status ● ==========");
+                System.out.println(" ● Class: " + User.getName());
+                System.out.println();
+                System.out.println(" ● H.P: " + User.getHp());
+                System.out.println(" ● Pow: " + User.getPower());
+                System.out.println(" ● M.P: " + User.getMp());
+                System.out.println(" ● Dex: " + User.getDex());
+                System.out.println(" ● Money: " + User.getMoney() + "(Won)");
 
-                    break;
+                break;
             
-                case 2:
-                //던전으로 이동
-                    run = false;
-                    DungeonPage();
-                    break;
-                case 3:
-                    run = false;
-                    shop();
-                    //상점 구현
-                    break;
-                case 4:
-                    //저장 기능 구현
-                    try {
-                        UserSave.account();
-                    } catch(Exception e) {
+            case 2:
+            //던전으로 이동
+                run = false;
+                DungeonPage();
+                break;
+            case 3:
+                run = false;
+                shop();
+                //상점 구현
+                break;
+            case 4:
+                //저장 기능 구현
+                try {
+                    UserSave.account();
+                } catch(Exception e) {
 
-                        e.printStackTrace();
-                    }
-                    break;
-                case 5:
-                    exitApp();
-                    break;
+                    e.printStackTrace();
+                }
+                break;
+            case 5:
+                exitApp();
+                break;
             }
 
         }
@@ -158,16 +158,19 @@ public class RPG {
     }
 
     static void shop() {
-        System.out.println("==============shop==============");
-        System.out.println("1.물건사기 | 2.마을로가기 | 3.종료");
-        System.out.println("================================");
-        System.out.println("선택 >>");
-        int input = scan.nextInt();
+        run = true;
 
-        boolean run2 = true;
+        while(run) {
+            System.out.println("==============shop==============");
+            System.out.println("1.물건사기 | 2.마을로가기 | 3.종료");
+            System.out.println("================================");
+            System.out.println("선택 >>");
+            int input = scan.nextInt();
 
-        while(run2) {
-            switch (input) {
+            boolean run2 = true;
+
+            while(run2) {
+                switch (input) {
 
                 case 1: //물건사기
 
@@ -269,7 +272,7 @@ public class RPG {
 
                             break;
                         case 4://포션
-                        
+
                             if(User.getMoney() >= 0 && User.getHp() < 100) {//돈
                                     
 
@@ -300,6 +303,52 @@ public class RPG {
                         }
 
                         break;
+
+                case 2://마을로 가기
+                        GamePage();
+                        break;
+                case 3:
+                        System.out.println("프로그램이 종료 되었습니다.");
+                        System.exit(0);
+                        break;
+                }
+            }              
+        }
+    }
+
+    static void DungeonPage() {
+        run = true;
+
+        while(run) {
+            System.out.println("====================던전=======================");
+            System.out.println("1.동굴 | 2.심해 | 3.정글 | 4.마을로가기 | 5.종료");
+            System.out.println("===============================================");
+            System.out.println("선택>>");
+            int input = scan.nextInt();
+
+            switch (input) {
+                case 1: //던전 공격 화면 구현
+                    run = false;
+                    Attack(1);
+                    break;
+            
+                case 2: //던전 공격 화면 구현
+                    run = false;
+                    Attack(2);
+                    break;
+                
+                case 3: //던전 공격 화면 구현
+                    run = false;
+                    Attack(3);
+                    break;
+                
+                case 4:
+                    GamePage();
+                    break;
+
+                case 5:
+                    System.out.println("프로그램이 종료 되었습니다.");
+                    System.exit(0);
             }
         }
     }
